@@ -19,19 +19,32 @@
     --gold-dim:#a3852b;
     --cream:#f6efdc;
     --cream-dim:#cfc6a8;
+    --page-bg:#071f18;
+    --heading-color:var(--gold-bright);
+    --muted-color:var(--cream-dim);
+    --footer-color:var(--gold-dim);
+    --pattern-opacity:0.07;
+  }
+  html[data-theme="light"]{
+    --page-bg:#ffffff;
+    --heading-color:#8a6d1f;
+    --muted-color:#4a5850;
+    --footer-color:#8a6d1f;
+    --pattern-opacity:0.06;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
     background:
       radial-gradient(circle at 50% -10%, rgba(212,175,55,0.10), transparent 45%),
-      var(--bg-deep);
+      var(--page-bg);
     background-attachment:fixed;
     color:var(--cream);
     font-family:'Tajawal', sans-serif;
     min-height:100vh;
     position:relative;
     overflow-x:hidden;
+    transition:background-color .4s ease, color .4s ease;
   }
   /* Islamic geometric star pattern overlay */
   body::before{
@@ -39,11 +52,34 @@
     position:fixed;
     inset:0;
     pointer-events:none;
-    opacity:0.07;
+    opacity:var(--pattern-opacity);
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1'%3E%3Cpath d='M60 6 L74 34 L106 34 L82 54 L92 86 L60 68 L28 86 L38 54 L14 34 L46 34 Z'/%3E%3Ccircle cx='60' cy='60' r='52'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3C/g%3E%3C/svg%3E");
     background-size:120px 120px;
     z-index:0;
   }
+  .theme-toggle{
+    position:fixed;
+    top:16px;
+    left:16px;
+    z-index:10;
+    width:46px; height:46px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold) 60%, var(--gold-dim));
+    box-shadow:0 3px 10px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .3s cubic-bezier(.2,.8,.3,1.4), box-shadow .3s ease;
+  }
+  .theme-toggle:hover{
+    transform:scale(1.08) rotate(-8deg);
+    box-shadow:0 6px 16px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .theme-toggle svg{width:24px; height:24px; color:#1c2a20;}
+  .theme-toggle .icon-moon{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block;}
+
   .wrap{
     position:relative;
     z-index:1;
@@ -66,12 +102,13 @@
   .hero .tagline{
     font-family:'Aref Ruqaa', serif;
     font-size:clamp(22px, 4.2vw, 32px);
-    color:var(--gold-bright);
+    color:var(--heading-color);
     margin-top:4px;
     letter-spacing:0.5px;
+    transition:color .4s ease;
   }
   .hero .sub{
-    color:var(--cream-dim);
+    color:var(--muted-color);
     font-size:15px;
     margin-top:10px;
     max-width:480px;
@@ -84,15 +121,16 @@
     justify-content:center;
     gap:10px;
     margin:26px 0 8px;
-    color:var(--gold-dim);
+    color:var(--footer-color);
+    transition:color .4s ease;
   }
   .divider::before, .divider::after{
     content:"";
     height:1px;
     width:60px;
-    background:linear-gradient(90deg, transparent, var(--gold-dim));
+    background:linear-gradient(90deg, transparent, var(--footer-color));
   }
-  .divider::after{background:linear-gradient(90deg, var(--gold-dim), transparent);}
+  .divider::after{background:linear-gradient(90deg, var(--footer-color), transparent);}
   .divider svg{width:18px; height:18px;}
 
   /* ---------- PANELS ---------- */
@@ -209,8 +247,9 @@
   .contact-title{
     font-family:'Aref Ruqaa', serif;
     font-size:22px;
-    color:var(--gold-bright);
+    color:var(--heading-color);
     margin-bottom:18px;
+    transition:color .4s ease;
   }
   .social-row{
     display:flex;
@@ -251,7 +290,8 @@
     margin-top:64px;
     font-size:13px;
     font-weight:700;
-    color:var(--cream-dim);
+    color:var(--muted-color);
+    transition:color .4s ease;
   }
   .social-btn:hover::before{
     transform:scale(1.08) rotate(-6deg);
@@ -261,13 +301,18 @@
   footer{
     text-align:center;
     margin-top:40px;
-    color:var(--gold-dim);
+    color:var(--footer-color);
     font-size:12.5px;
     letter-spacing:0.5px;
+    transition:color .4s ease;
   }
 </style>
 </head>
 <body>
+<button id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+</button>
 <div class="wrap">
 
   <div class="hero">
@@ -479,5 +524,25 @@
 
   <footer>يلا جملة — تسوّق بالجملة بضغطة وحدة</footer>
 </div>
+<script>
+(function(){
+  var root = document.documentElement;
+  var key = 'yalla-jumla-theme';
+  var saved = null;
+  try{ saved = localStorage.getItem(key); }catch(e){}
+  if(saved === 'light'){ root.setAttribute('data-theme','light'); }
+  var btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', function(){
+    var isLight = root.getAttribute('data-theme') === 'light';
+    if(isLight){
+      root.removeAttribute('data-theme');
+      try{ localStorage.setItem(key,'dark'); }catch(e){}
+    }else{
+      root.setAttribute('data-theme','light');
+      try{ localStorage.setItem(key,'light'); }catch(e){}
+    }
+  });
+})();
+</script>
 </body>
 </html>
