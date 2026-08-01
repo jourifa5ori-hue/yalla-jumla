@@ -201,6 +201,63 @@
   }
   .cart-btn svg{width:22px; height:22px; flex:0 0 auto;}
 
+  /* ---------- CONTACT / SOCIAL ---------- */
+  .contact-panel{
+    text-align:center;
+    margin-top:8px;
+  }
+  .contact-title{
+    font-family:'Aref Ruqaa', serif;
+    font-size:22px;
+    color:var(--gold-bright);
+    margin-bottom:18px;
+  }
+  .social-row{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .social-btn{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--cream);
+    width:96px;
+  }
+  .social-btn > svg{
+    width:26px; height:26px;
+    color:#1c2a20;
+  }
+  .social-btn::before{
+    content:"";
+    width:60px; height:60px;
+    border-radius:50%;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold) 60%, var(--gold-dim));
+    box-shadow:0 3px 10px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .3s cubic-bezier(.2,.8,.3,1.4), box-shadow .3s ease;
+  }
+  .social-btn{position:relative;}
+  .social-btn > svg{
+    position:absolute;
+    top:17px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .social-btn span{
+    margin-top:64px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--cream-dim);
+  }
+  .social-btn:hover::before{
+    transform:scale(1.08) rotate(-6deg);
+    box-shadow:0 6px 16px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+
   footer{
     text-align:center;
     margin-top:40px;
@@ -396,6 +453,28 @@
       </a>
     </div>
 
+  </div>
+
+  <div class="divider">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"/></svg>
+  </div>
+
+  <div class="contact-panel">
+    <h2 class="contact-title">تواصل معنا</h2>
+    <div class="social-row">
+      <a class="social-btn" href="https://www.facebook.com/share/18A5DY1XZZ/" target="_blank" rel="noopener" aria-label="فيسبوك">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8h2V4h-2a5 5 0 0 0-5 5v2H8v4h2v9h4v-9h2.6l.4-4H14v-2c0-.6.4-1 1-1z"/></svg>
+        <span>فيسبوك</span>
+      </a>
+      <a class="social-btn" href="https://www.instagram.com/yallahgomla?igsh=MTBsMDY3YnV0OHc3eg==" target="_blank" rel="noopener" aria-label="انستقرام">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>انستقرام</span>
+      </a>
+      <a class="social-btn" href="https://wa.me/201121170839" target="_blank" rel="noopener" aria-label="واتساب">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M12 4a8 8 0 0 1 8 8"/><path d="M4 21l1.6-4.2A8 8 0 0 1 4 12"/></svg>
+        <span>واتساب</span>
+      </a>
+    </div>
   </div>
 
   <footer>يلا جملة — تسوّق بالجملة بضغطة وحدة</footer>
