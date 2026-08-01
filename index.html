@@ -58,11 +58,11 @@
     z-index:0;
   }
   .theme-toggle{
-    position:fixed;
-    top:16px;
-    left:16px;
+    position:absolute;
+    top:6px;
+    left:6px;
     z-index:10;
-    width:46px; height:46px;
+    width:42px; height:42px;
     border-radius:50%;
     border:none;
     cursor:pointer;
@@ -309,11 +309,11 @@
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
-  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg>
-  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
-</button>
 <div class="wrap">
+  <button id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+  </button>
 
   <div class="hero">
     <div class="logo-frame">
