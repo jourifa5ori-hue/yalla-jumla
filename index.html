@@ -781,7 +781,7 @@
   (function(){
     var counterEl = document.getElementById('visitCounter');
     var countEl = document.getElementById('visitCount');
-    fetch('https://api.countapi.xyz/hit/yalla-jumla-eg/visits')
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/yalla_jumla_eg_site_visits')
       .then(function(r){ return r.json(); })
       .then(function(data){
         if(data && typeof data.value !== 'undefined'){
